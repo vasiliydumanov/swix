@@ -28,4 +28,8 @@ print("\n")
 print(y.data)
 print(y.header)
 
-//imshow(x)
+let a = zeros((3, 7))
+let b = arange(3).reshape((3, 1))
+let c = a + b
+print(c)
+

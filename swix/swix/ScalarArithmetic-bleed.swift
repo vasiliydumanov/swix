@@ -7,11 +7,11 @@ import Darwin
 import CoreGraphics
 
 
-protocol FloatingPointMathType {
+public protocol FloatingPointMathType {
 //  var acos:Self  {get}
 //  var asin:Self  {get}
 //  var atan:Self  {get}
-//  func atan2(x:Self) -> Self
+//  public func atan2(x:Self) -> Self
 //  var cos:Self   {get}
 //  var sin:Self   {get}
 //  var tan:Self   {get}
@@ -20,17 +20,17 @@ protocol FloatingPointMathType {
 //  var log:Self   {get}
 //  var log10:Self {get}
 //  var log2:Self  {get}
-//  func pow(exponent:Self) -> Self
+//  public func pow(exponent:Self) -> Self
 //  var sqrt:Self  {get}
 }
 
 
-extension Double :  FloatingPointMathType {
+extension  Double :  FloatingPointMathType {
 //  var abs:Double  { return Double.abs(self)   }
 //  var acos:Double { return Darwin.acos(self)  }
 //  var asin:Double { return Darwin.asin(self)  }
 //  var atan:Double { return Darwin.atan(self)  }
-//  func atan2(x:Double) -> Double { return Darwin.atan2(self,x) }
+//  public func atan2(x:Double) -> Double { return Darwin.atan2(self,x) }
 //  var cos:Double  { return Darwin.cos(self)   }
 //  var sin:Double  { return Darwin.sin(self)   }
 //  var tan:Double  { return Darwin.tan(self)   }
@@ -39,25 +39,25 @@ extension Double :  FloatingPointMathType {
 //  var log:Double  { return Darwin.log(self)   }
 //  var log10:Double{ return Darwin.log10(self) }
 //  var log2:Double { return Darwin.log2(self)  }
-//  func pow(exponent:Double)-> Double { return Darwin.pow(self, exponent) }
+//  public func pow(exponent:Double)-> Double { return Darwin.pow(self, exponent) }
 //  var sqrt:Double { return Darwin.sqrt(self)  }
-  func __conversion() -> CGFloat { return CGFloat(self) }
+  public func __conversion() -> CGFloat { return CGFloat(self) }
 }
 
 
 
-protocol ScalarFloatingPointType {
+public protocol ScalarFloatingPointType {
   var toDouble:Double { get }
   init(_ value:Double)
 }
 
-extension CGFloat : ScalarFloatingPointType, FloatingPointMathType {
-  var toDouble:Double  { return Double(self)      }
+extension  CGFloat : ScalarFloatingPointType, FloatingPointMathType {
+  public var toDouble:Double  { return Double(self)      }
 //  var abs:CGFloat      { return self.abs  }
 //  var acos:CGFloat     { return Darwin.acos(self) }
 //  var asin:CGFloat     { return Darwin.asin(self) }
 //  var atan:CGFloat     { return Darwin.atan(self) }
-//  func atan2(x:CGFloat) -> CGFloat { return Darwin.atan2(self, x) }
+//  public func atan2(x:CGFloat) -> CGFloat { return Darwin.atan2(self, x) }
 //  var cos:CGFloat      { return Darwin.cos(self)  }
 //  var sin:CGFloat      { return Darwin.sin(self)  }
 //  var tan:CGFloat      { return Darwin.tan(self)  }
@@ -66,58 +66,58 @@ extension CGFloat : ScalarFloatingPointType, FloatingPointMathType {
 //  var log:CGFloat      { return Darwin.log(self)  }
 //  var log10:CGFloat    { return Darwin.log10(self)}
 //  var log2:CGFloat     { return Darwin.log2(self)}
-//  func pow(exponent:CGFloat)-> CGFloat { return Darwin.pow(self, exponent) }
+//  public func pow(exponent:CGFloat)-> CGFloat { return Darwin.pow(self, exponent) }
 //  var sqrt:CGFloat     { return Darwin.sqrt(self) }
-  func __conversion() -> Double { return Double(self) }
+  public func __conversion() -> Double { return Double(self) }
 }
 
-extension Float : ScalarFloatingPointType { var toDouble:Double { return Double(self)      } }
+extension  Float : ScalarFloatingPointType { public var toDouble:Double { return Double(self)      } }
 
-protocol ScalarIntegerType : ScalarFloatingPointType {
+public protocol ScalarIntegerType : ScalarFloatingPointType {
    var toInt:Int { get }
 }
 
-extension Int : ScalarIntegerType {
-  var toDouble:Double { return Double(self) }
-  func __conversion() -> Double { return Double(self) }
-  var toInt:Int { return Int(self) }
+extension  Int : ScalarIntegerType {
+  public var toDouble:Double { return Double(self) }
+  public func __conversion() -> Double { return Double(self) }
+  public var toInt:Int { return Int(self) }
 
 }
-extension Int16 : ScalarIntegerType {
-  var toDouble:Double { return Double(self) }
-  func __conversion() -> Double { return Double(self) }
-  var toInt:Int { return Int(self) }
+extension  Int16 : ScalarIntegerType {
+  public var toDouble:Double { return Double(self) }
+  public func __conversion() -> Double { return Double(self) }
+  public var toInt:Int { return Int(self) }
 
 }
-extension Int32 : ScalarIntegerType {
-  var toDouble:Double { return Double(self) }
-  func __conversion() -> Double { return Double(self) }
-  var toInt:Int { return Int(self) }
+extension  Int32 : ScalarIntegerType {
+  public var toDouble:Double { return Double(self) }
+  public func __conversion() -> Double { return Double(self) }
+  public var toInt:Int { return Int(self) }
 
 }
-extension Int64 : ScalarIntegerType {
-  var toDouble:Double { return Double(self) }
-  func __conversion() -> Double { return Double(self) }
-  var toInt:Int { return Int(self) }
+extension  Int64 : ScalarIntegerType {
+  public var toDouble:Double { return Double(self) }
+  public func __conversion() -> Double { return Double(self) }
+  public var toInt:Int { return Int(self) }
 
 }
-extension UInt : ScalarFloatingPointType {
-  var toDouble:Double { return Double(self) }
-  func __conversion() -> Double { return Double(self) }
+extension  UInt : ScalarFloatingPointType {
+  public var toDouble:Double { return Double(self) }
+  public func __conversion() -> Double { return Double(self) }
 
 }
-extension UInt16  : ScalarFloatingPointType {
-  var toDouble:Double { return Double(self) }
-  func __conversion() -> Double { return Double(self) }
+extension  UInt16  : ScalarFloatingPointType {
+  public var toDouble:Double { return Double(self) }
+  public func __conversion() -> Double { return Double(self) }
 
 }
-extension UInt32 : ScalarFloatingPointType {
-  var toDouble:Double { return Double(self) }
-  func __conversion() -> Double { return Double(self) }
+extension  UInt32 : ScalarFloatingPointType {
+  public var toDouble:Double { return Double(self) }
+  public func __conversion() -> Double { return Double(self) }
 }
-extension UInt64 : ScalarFloatingPointType {
-  var toDouble:Double { return Double(self) }
-  func __conversion() -> Double { return Double(self) }
+extension  UInt64 : ScalarFloatingPointType {
+  public var toDouble:Double { return Double(self) }
+  public func __conversion() -> Double { return Double(self) }
 
 }
 
@@ -125,81 +125,81 @@ extension UInt64 : ScalarFloatingPointType {
 
 
 
-func + <T:ScalarIntegerType>(lhs:T, rhs:Int) -> Int { return lhs + rhs }
-func + <T:ScalarIntegerType>(lhs:Int, rhs:T) -> Int { return lhs + rhs.toInt }
+public func + <T:ScalarIntegerType>(lhs:T, rhs:Int) -> Int { return lhs + rhs }
+public func + <T:ScalarIntegerType>(lhs:Int, rhs:T) -> Int { return lhs + rhs.toInt }
 
-func - <T:ScalarIntegerType>(lhs:T, rhs:Int) -> Int { return lhs.toInt - rhs }
-func - <T:ScalarIntegerType>(lhs:Int, rhs:T) -> Int { return lhs - rhs.toInt }
+public func - <T:ScalarIntegerType>(lhs:T, rhs:Int) -> Int { return lhs.toInt - rhs }
+public func - <T:ScalarIntegerType>(lhs:Int, rhs:T) -> Int { return lhs - rhs.toInt }
 
-func * <T:ScalarIntegerType>(lhs:T, rhs:Int) -> Int { return lhs.toInt * rhs }
-func * <T:ScalarIntegerType>(lhs:Int, rhs:T) -> Int { return lhs * rhs.toInt }
+public func * <T:ScalarIntegerType>(lhs:T, rhs:Int) -> Int { return lhs.toInt * rhs }
+public func * <T:ScalarIntegerType>(lhs:Int, rhs:T) -> Int { return lhs * rhs.toInt }
 
-func / <T:ScalarIntegerType>(lhs:T, rhs:Int) -> Int { return lhs.toInt / rhs }
-func / <T:ScalarIntegerType>(lhs:Int, rhs:T) -> Int { return lhs / rhs.toInt }
+public func / <T:ScalarIntegerType>(lhs:T, rhs:Int) -> Int { return lhs.toInt / rhs }
+public func / <T:ScalarIntegerType>(lhs:Int, rhs:T) -> Int { return lhs / rhs.toInt }
 
 
 
 //Equality T<===>T
-func == <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:U,rhs:T) -> Bool { return (lhs.toDouble == rhs.toDouble) }
-func == <T:ScalarFloatingPointType> (lhs:Double,rhs:T) -> Bool { return (lhs == rhs.toDouble) }
-func == <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs.toDouble == rhs) }
+public func == <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:U,rhs:T) -> Bool { return (lhs.toDouble == rhs.toDouble) }
+public func == <T:ScalarFloatingPointType> (lhs:Double,rhs:T) -> Bool { return (lhs == rhs.toDouble) }
+public func == <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs.toDouble == rhs) }
 
-func != <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:U,rhs:T) -> Bool { return (lhs.toDouble == rhs.toDouble) == false }
-func != <T:ScalarFloatingPointType> (lhs:Double,rhs:T) -> Bool { return (lhs == rhs.toDouble) == false }
-func != <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs.toDouble == rhs) == false }
+public func != <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:U,rhs:T) -> Bool { return (lhs.toDouble == rhs.toDouble) == false }
+public func != <T:ScalarFloatingPointType> (lhs:Double,rhs:T) -> Bool { return (lhs == rhs.toDouble) == false }
+public func != <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs.toDouble == rhs) == false }
 
-func <= <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:T,rhs:U) -> Bool { return (lhs.toDouble <= rhs.toDouble) }
-func <= <T:ScalarFloatingPointType> (lhs:Double, rhs:T) -> Bool { return (lhs <= rhs.toDouble) }
-func <= <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs.toDouble <= rhs) }
+public func <= <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:T,rhs:U) -> Bool { return (lhs.toDouble <= rhs.toDouble) }
+public func <= <T:ScalarFloatingPointType> (lhs:Double, rhs:T) -> Bool { return (lhs <= rhs.toDouble) }
+public func <= <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs.toDouble <= rhs) }
 
-func < <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:T,rhs:U) -> Bool { return (lhs.toDouble <  rhs.toDouble) }
-func < <T:ScalarFloatingPointType> (lhs:Double, rhs:T) -> Bool { return (lhs <  rhs.toDouble) }
-func < <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs.toDouble <  rhs) }
+public func < <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:T,rhs:U) -> Bool { return (lhs.toDouble <  rhs.toDouble) }
+public func < <T:ScalarFloatingPointType> (lhs:Double, rhs:T) -> Bool { return (lhs <  rhs.toDouble) }
+public func < <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs.toDouble <  rhs) }
 
-func >  <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:T,rhs:U) -> Bool { return (lhs <= rhs) == false }
-func >  <T:ScalarFloatingPointType> (lhs:Double, rhs:T) -> Bool { return (lhs <= rhs) == false}
-func >  <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs <= rhs) == false }
+public func >  <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:T,rhs:U) -> Bool { return (lhs <= rhs) == false }
+public func >  <T:ScalarFloatingPointType> (lhs:Double, rhs:T) -> Bool { return (lhs <= rhs) == false}
+public func >  <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs <= rhs) == false }
 
-func >= <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:T,rhs:U) -> Bool { return (lhs < rhs) == false }
-func >= <T:ScalarFloatingPointType> (lhs:Double, rhs:T) -> Bool { return (lhs < rhs) == false }
-func >= <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs < rhs) == false }
+public func >= <T:ScalarFloatingPointType, U:ScalarFloatingPointType> (lhs:T,rhs:U) -> Bool { return (lhs < rhs) == false }
+public func >= <T:ScalarFloatingPointType> (lhs:Double, rhs:T) -> Bool { return (lhs < rhs) == false }
+public func >= <T:ScalarFloatingPointType> (lhs:T,rhs:Double) -> Bool { return (lhs < rhs) == false }
 
 
 
 //SUBTRACTION
-func - <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:U, rhs:T) -> Double  {return (lhs.toDouble - rhs.toDouble) }
-func - <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> T  { return T(lhs - rhs.toDouble) }
-func - <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> T  { return T(lhs.toDouble - rhs) }
-func - <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> Double  { return (lhs - rhs.toDouble) }
-func - <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> Double  { return (lhs.toDouble - rhs) }
-func -= <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:inout T, rhs:U) { lhs = T(lhs.toDouble - rhs.toDouble) }
-func -= <T:ScalarFloatingPointType>(lhs:inout Double, rhs:T)  { lhs = lhs - rhs.toDouble }
+public func - <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:U, rhs:T) -> Double  {return (lhs.toDouble - rhs.toDouble) }
+public func - <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> T  { return T(lhs - rhs.toDouble) }
+public func - <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> T  { return T(lhs.toDouble - rhs) }
+public func - <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> Double  { return (lhs - rhs.toDouble) }
+public func - <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> Double  { return (lhs.toDouble - rhs) }
+public func -= <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:inout T, rhs:U) { lhs = T(lhs.toDouble - rhs.toDouble) }
+public func -= <T:ScalarFloatingPointType>(lhs:inout Double, rhs:T)  { lhs = lhs - rhs.toDouble }
 
 //ADDITION
-func + <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:U, rhs:T) -> Double  {return (lhs.toDouble + rhs.toDouble) }
-func + <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> T  { return T(lhs + rhs.toDouble) }
-func + <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> T  { return T(lhs.toDouble + rhs) }
-func + <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> Double  { return (lhs + rhs.toDouble) }
-func + <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> Double  { return (lhs.toDouble + rhs) }
-func += <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:inout T, rhs:U) { lhs = T(lhs.toDouble + rhs.toDouble) }
-func += <T:ScalarFloatingPointType>(lhs:inout Double, rhs:T)  { lhs = lhs + rhs.toDouble }
+public func + <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:U, rhs:T) -> Double  {return (lhs.toDouble + rhs.toDouble) }
+public func + <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> T  { return T(lhs + rhs.toDouble) }
+public func + <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> T  { return T(lhs.toDouble + rhs) }
+public func + <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> Double  { return (lhs + rhs.toDouble) }
+public func + <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> Double  { return (lhs.toDouble + rhs) }
+public func += <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:inout T, rhs:U) { lhs = T(lhs.toDouble + rhs.toDouble) }
+public func += <T:ScalarFloatingPointType>(lhs:inout Double, rhs:T)  { lhs = lhs + rhs.toDouble }
 
 //MULTIPLICATION
-func * <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:U, rhs:T) -> Double  {return (lhs.toDouble * rhs.toDouble) }
-func * <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> T  { return T(lhs * rhs.toDouble) }
-func * <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> T  { return T(lhs.toDouble * rhs) }
-func * <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> Double  { return (lhs * rhs.toDouble) }
-func * <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> Double  { return (lhs.toDouble * rhs) }
-func *= <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:inout T, rhs:U) { lhs = T(lhs.toDouble * rhs.toDouble) }
-func *= <T:ScalarFloatingPointType>(lhs:inout Double, rhs:T)  { lhs = lhs * rhs.toDouble }
+public func * <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:U, rhs:T) -> Double  {return (lhs.toDouble * rhs.toDouble) }
+public func * <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> T  { return T(lhs * rhs.toDouble) }
+public func * <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> T  { return T(lhs.toDouble * rhs) }
+public func * <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> Double  { return (lhs * rhs.toDouble) }
+public func * <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> Double  { return (lhs.toDouble * rhs) }
+public func *= <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:inout T, rhs:U) { lhs = T(lhs.toDouble * rhs.toDouble) }
+public func *= <T:ScalarFloatingPointType>(lhs:inout Double, rhs:T)  { lhs = lhs * rhs.toDouble }
 
 //DIVISION
-func / <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:U, rhs:T) -> Double  {return (lhs.toDouble / rhs.toDouble) }
-func / <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> T  { return T(lhs / rhs.toDouble) }
-func / <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> T  { return T(lhs.toDouble / rhs) }
-func / <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> Double  { return (lhs / rhs.toDouble) }
-func / <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> Double  { return (lhs.toDouble / rhs) }
-func /= <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:inout T, rhs:U) { lhs = T(lhs.toDouble / rhs.toDouble) }
-func /= <T:ScalarFloatingPointType>(lhs:inout Double, rhs:T)  { lhs = lhs / rhs.toDouble }
+public func / <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:U, rhs:T) -> Double  {return (lhs.toDouble / rhs.toDouble) }
+public func / <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> T  { return T(lhs / rhs.toDouble) }
+public func / <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> T  { return T(lhs.toDouble / rhs) }
+public func / <T:ScalarFloatingPointType>(lhs:Double, rhs:T) -> Double  { return (lhs / rhs.toDouble) }
+public func / <T:ScalarFloatingPointType>(lhs:T, rhs:Double) -> Double  { return (lhs.toDouble / rhs) }
+public func /= <T:ScalarFloatingPointType, U:ScalarFloatingPointType>(lhs:inout T, rhs:U) { lhs = T(lhs.toDouble / rhs.toDouble) }
+public func /= <T:ScalarFloatingPointType>(lhs:inout Double, rhs:T)  { lhs = lhs / rhs.toDouble }
 
 

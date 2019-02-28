@@ -9,26 +9,64 @@
 import Foundation
 import Accelerate
 
-func make_operator(_ lhs: matrix, operation: String, rhs: matrix)->matrix{
-    assert(lhs.shape.0 == rhs.shape.0, "Sizes must match!")
-    assert(lhs.shape.1 == rhs.shape.1, "Sizes must match!")
+public func make_operator(_ lhs: matrix, operation: String, rhs: matrix)->matrix{
+    assert(lhs.shape.0 == rhs.shape.0 || lhs.shape.0 == 1 || rhs.shape.0 == 1, "0-axes size must match or be equal to 1.")
+    assert(lhs.shape.1 == rhs.shape.1 || lhs.shape.1 == 1 || rhs.shape.1 == 1, "1-axes size must match or be equal to 1.")
     
-    var result = zeros_like(lhs) // real result
-    let lhsM = lhs.flat
-    let rhsM = rhs.flat
-    var resM:vector = zeros_like(lhsM) // flat vector
-    if operation=="+" {resM = lhsM + rhsM}
-    else if operation=="-" {resM = lhsM - rhsM}
-    else if operation=="*" {resM = lhsM * rhsM}
-    else if operation=="/" {resM = lhsM / rhsM}
-    else if operation=="<" {resM = lhsM < rhsM}
-    else if operation==">" {resM = lhsM > rhsM}
-    else if operation==">=" {resM = lhsM >= rhsM}
-    else if operation=="<=" {resM = lhsM <= rhsM}
-    result.flat.grid = resM.grid
+    let lhsV: vector
+    let rhsV: vector
+    let resShape: (Int, Int)
+    switch (lhs.shape.0 == rhs.shape.0, lhs.shape.1 == rhs.shape.1) {
+    case (true, true):
+        lhsV = lhs.flat
+        rhsV = rhs.flat
+        resShape = lhs.shape
+    case (true, false):
+        if lhs.shape.1 == 1 {
+            lhsV = `repeat`(lhs.flat, N: rhs.shape.1, axis: 1)
+            rhsV = rhs.flat
+            resShape = rhs.shape
+        } else {
+            rhsV = `repeat`(rhs.flat, N: lhs.shape.1, axis: 1)
+            lhsV = lhs.flat
+            resShape = lhs.shape
+        }
+    case (false, true):
+        if lhs.shape.0 == 1 {
+            lhsV = `repeat`(lhs.flat, N: rhs.shape.0, axis: 0)
+            rhsV = rhs.flat
+            resShape = rhs.shape
+        } else {
+            rhsV = `repeat`(rhs.flat, N: lhs.shape.0, axis: 0)
+            lhsV = lhs.flat
+            resShape = lhs.shape
+        }
+    case (false, false):
+        if lhs.shape.0 == 1 {
+            lhsV = `repeat`(lhs.flat, N: rhs.shape.0 * rhs.shape.1, axis: 0)
+            rhsV = rhs.flat
+            resShape = rhs.shape
+        } else {
+            rhsV = `repeat`(rhs.flat, N: lhs.shape.0 * lhs.shape.1, axis: 0)
+            lhsV = lhs.flat
+            resShape = lhs.shape
+        }
+    }
+    
+    var result = zeros(resShape) // real result
+    var resV:vector = zeros_like(lhsV) // flat vector
+    if operation=="+" {resV = lhsV + rhsV}
+    else if operation=="-" {resV = lhsV - rhsV}
+    else if operation=="*" {resV = lhsV * rhsV}
+    else if operation=="/" {resV = lhsV / rhsV}
+    else if operation=="<" {resV = lhsV < rhsV}
+    else if operation==">" {resV = lhsV > rhsV}
+    else if operation==">=" {resV = lhsV >= rhsV}
+    else if operation=="<=" {resV = lhsV <= rhsV}
+    result.flat.grid = resV.grid
     return result
 }
-func make_operator(_ lhs: matrix, operation: String, rhs: Double)->matrix{
+public func make_operator(_ lhs: matrix, operation: String, rhs: Double)->matrix{
     var result = zeros_like(lhs) // real result
 //    var lhsM = asmatrix(lhs.grid) // flat
     let lhsM = lhs.flat
@@ -44,7 +82,7 @@ func make_operator(_ lhs: matrix, operation: String, rhs: Double)->matrix{
     result.flat.grid = resM.grid
     return result
 }
-func make_operator(_ lhs: Double, operation: String, rhs: matrix)->matrix{
+public func make_operator(_ lhs: Double, operation: String, rhs: matrix)->matrix{
     var result = zeros_like(rhs) // real result
 //    var rhsM = asmatrix(rhs.grid) // flat
     let rhsM = rhs.flat
@@ -62,91 +100,91 @@ func make_operator(_ lhs: Double, operation: String, rhs: matrix)->matrix{
 }
 
 // DOUBLE ASSIGNMENT
-func <- (lhs:inout matrix, rhs:Double){
+public func <- (lhs:inout matrix, rhs:Double){
     let assign = ones((lhs.shape)) * rhs
     lhs = assign
 }
 
 // SOLVE
 infix operator !/ : Multiplicative
-func !/ (lhs: matrix, rhs: vector) -> vector{
+public func !/ (lhs: matrix, rhs: vector) -> vector{
     return solve(lhs, b: rhs)}
 // EQUALITY
-func ~== (lhs: matrix, rhs: matrix) -> Bool{
+public func ~== (lhs: matrix, rhs: matrix) -> Bool{
     return (rhs.flat ~== lhs.flat)}
 
 //infix operator == : ComparisonPrecedence
-func == (lhs: matrix, rhs: matrix)->matrix{
+public func == (lhs: matrix, rhs: matrix)->matrix{
     return (lhs.flat == rhs.flat).reshape(lhs.shape)
 }
 infix operator !== : ComparisonPrecedence
-func !== (lhs: matrix, rhs: matrix)->matrix{
+public func !== (lhs: matrix, rhs: matrix)->matrix{
     return (lhs.flat !== rhs.flat).reshape(lhs.shape)
 }
 
 /// ELEMENT WISE OPERATORS
 // PLUS
 //infix operator + : Additive
-func + (lhs: matrix, rhs: matrix) -> matrix{
+public func + (lhs: matrix, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "+", rhs: rhs)}
-func + (lhs: Double, rhs: matrix) -> matrix{
+public func + (lhs: Double, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "+", rhs: rhs)}
-func + (lhs: matrix, rhs: Double) -> matrix{
+public func + (lhs: matrix, rhs: Double) -> matrix{
     return make_operator(lhs, operation: "+", rhs: rhs)}
 // MINUS
 //infix operator - : Additive
-func - (lhs: matrix, rhs: matrix) -> matrix{
+public func - (lhs: matrix, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "-", rhs: rhs)}
-func - (lhs: Double, rhs: matrix) -> matrix{
+public func - (lhs: Double, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "-", rhs: rhs)}
-func - (lhs: matrix, rhs: Double) -> matrix{
+public func - (lhs: matrix, rhs: Double) -> matrix{
     return make_operator(lhs, operation: "-", rhs: rhs)}
 // TIMES
 //infix operator * : Multiplicative
-func * (lhs: matrix, rhs: matrix) -> matrix{
+public func * (lhs: matrix, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "*", rhs: rhs)}
-func * (lhs: Double, rhs: matrix) -> matrix{
+public func * (lhs: Double, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "*", rhs: rhs)}
-func * (lhs: matrix, rhs: Double) -> matrix{
+public func * (lhs: matrix, rhs: Double) -> matrix{
     return make_operator(lhs, operation: "*", rhs: rhs)}
 // DIVIDE
 //infix operator / : Multiplicative
-func / (lhs: matrix, rhs: matrix) -> matrix{
+public func / (lhs: matrix, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "/", rhs: rhs)
 }
-func / (lhs: Double, rhs: matrix) -> matrix{
+public func / (lhs: Double, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "/", rhs: rhs)}
-func / (lhs: matrix, rhs: Double) -> matrix{
+public func / (lhs: matrix, rhs: Double) -> matrix{
     return make_operator(lhs, operation: "/", rhs: rhs)}
 // LESS THAN
 //infix operator < : ComparisonPrecedence
-func < (lhs: matrix, rhs: Double) -> matrix{
+public func < (lhs: matrix, rhs: Double) -> matrix{
     return make_operator(lhs, operation: "<", rhs: rhs)}
-func < (lhs: matrix, rhs: matrix) -> matrix{
+public func < (lhs: matrix, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "<", rhs: rhs)}
-func < (lhs: Double, rhs: matrix) -> matrix{
+public func < (lhs: Double, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "<", rhs: rhs)}
 // GREATER THAN
 //infix operator > : ComparisonPrecedence
-func > (lhs: matrix, rhs: Double) -> matrix{
+public func > (lhs: matrix, rhs: Double) -> matrix{
     return make_operator(lhs, operation: ">", rhs: rhs)}
-func > (lhs: matrix, rhs: matrix) -> matrix{
+public func > (lhs: matrix, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: ">", rhs: rhs)}
-func > (lhs: Double, rhs: matrix) -> matrix{
+public func > (lhs: Double, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: ">", rhs: rhs)}
 // GREATER THAN OR EQUAL
 //infix operator >= : ComparisonPrecedence
-func >= (lhs: matrix, rhs: Double) -> matrix{
+public func >= (lhs: matrix, rhs: Double) -> matrix{
     return make_operator(lhs, operation: ">=", rhs: rhs)}
-func >= (lhs: matrix, rhs: matrix) -> matrix{
+public func >= (lhs: matrix, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: ">=", rhs: rhs)}
-func >= (lhs: Double, rhs: matrix) -> matrix{
+public func >= (lhs: Double, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: ">=", rhs: rhs)}
 // LESS THAN OR EQUAL
 //infix operator <= : ComparisonPrecedence
-func <= (lhs: matrix, rhs: Double) -> matrix{
+public func <= (lhs: matrix, rhs: Double) -> matrix{
     return make_operator(lhs, operation: "<=", rhs: rhs)}
-func <= (lhs: matrix, rhs: matrix) -> matrix{
+public func <= (lhs: matrix, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "<=", rhs: rhs)}
-func <= (lhs: Double, rhs: matrix) -> matrix{
+public func <= (lhs: Double, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "<=", rhs: rhs)}
