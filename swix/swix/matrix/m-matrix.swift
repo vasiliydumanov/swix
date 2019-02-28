@@ -18,6 +18,7 @@ public struct matrix {
     public var T:matrix {return transpose(self)}
     public var I:matrix {return inv(self)}
     public var pI:matrix {return pinv(self)}
+    
     public init(columns: Int, rows: Int) {
         self.n = rows * columns
         self.rows = rows
@@ -25,8 +26,19 @@ public struct matrix {
         self.shape = (rows, columns)
         self.count = n
         self.flat = zeros(rows * columns)
-        
     }
+
+    public init(_ elements: [[ScalarFloatingPointType]]) {
+        assert(!elements.isEmpty, "Elements array cannot be empty.")
+        assert(elements.allSatisfy { $0.count == elements.first!.count }, "All rows must have the same size.")
+        self.rows = elements.count
+        self.columns = elements[0].count
+        self.n = rows * columns
+        self.shape = (rows, columns)
+        self.count = n
+        self.flat = vector(elements.flatMap { $0 })
+    }
+    
     public func copy()->matrix{
         var y = zeros_like(self)
         y.flat = self.flat.copy()
@@ -229,7 +241,20 @@ public struct matrix {
     }
 }
 
-
+extension matrix: ExpressibleByArrayLiteral {
+    public typealias ArrayLiteralElement = [ScalarFloatingPointType]
+    
+    public init(arrayLiteral elements: [ScalarFloatingPointType]...) {
+        assert(!elements.isEmpty, "Elements array cannot be empty.")
+        assert(elements.allSatisfy { $0.count == elements.first!.count }, "All rows must have the same size.")
+        self.rows = elements.count
+        self.columns = elements[0].count
+        self.n = rows * columns
+        self.shape = (rows, columns)
+        self.count = n
+        self.flat = vector(elements.flatMap { $0 })
+    }
+}
 
 
 

@@ -14,15 +14,24 @@ import Accelerate
 // SLOW PARTS: x[vector, vector] set
 
 public struct vector {
-    let n: Int // the number of elements
-    var count: Int // ditto
-    var grid: [Double] // the raw values
-    init(n: Int) {
+    public let n: Int // the number of elements
+    public var count: Int // ditto
+    public var grid: [Double] // the raw values
+    
+    public init(n: Int) {
         self.n = n
         self.count = n
         grid = Array(repeating: 0.0, count: n)
     }
-    func reshape(_ shape: (Int,Int)) -> matrix{
+    
+    public init(_ elements: [ScalarFloatingPointType]) {
+        assert(!elements.isEmpty, "Elements array cannot be empty.")
+        self.n = elements.count
+        self.count = n
+        grid = elements.map { $0.toDouble }
+    }
+    
+    public func reshape(_ shape: (Int,Int)) -> matrix{
         // reshape to a matrix of size.
         var (mm, nn) = shape
         if mm == -1 {mm = n / nn}
@@ -32,33 +41,33 @@ public struct vector {
         y.flat = self
         return y
     }
-    func copy() -> vector{
+    public func copy() -> vector{
         // return a new array just like this one
         let y = zeros(n)
         cblas_dcopy(self.n.cint, !self, 1.cint, !y, 1.cint)
         return y
     }
-    func sort(){
+    public func sort(){
         // sort this array *in place*
         vDSP_vsortD(!self, self.n.length, 1.cint)
     }
-    func indexIsValidForRow(_ index: Int) -> Bool {
+    public func indexIsValidForRow(_ index: Int) -> Bool {
         // making sure this index is valid
         return index >= 0 && index < n
     }
-    func min() -> Double{
+    public func min() -> Double{
         // return the minimum
         var m:CDouble=0
         vDSP_minvD(!self, 1.stride, &m, self.n.length)
         return Double(m)
     }
-    func max() -> Double{
+    public func max() -> Double{
         // return the maximum
         var m:CDouble=0
         vDSP_maxvD(!self, 1.stride, &m, self.n.length)
         return m
     }
-    func mean() -> Double{
+    public func mean() -> Double{
         // return the mean
         return sum(self) / n
     }
@@ -73,7 +82,7 @@ public struct vector {
             self[0..<n] = newValue
         }
     }
-    subscript(index: Int) -> Double {
+    public subscript(index: Int) -> Double {
         // x[0] -> Double. access a single element
         get {
             var newIndex:Int = index
@@ -88,7 +97,7 @@ public struct vector {
             grid[newIndex] = newValue
         }
     }
-    subscript(r: Range<Int>) -> vector {
+    public subscript(r: Range<Int>) -> vector {
         // x[0..<N]. Access a range of values.
         get {
             // assumes that r is not [0, 1, 2, 3...] not [0, 2, 4...]
@@ -97,7 +106,7 @@ public struct vector {
         set {
             self[asarray(r)].grid = newValue.grid}
     }
-    subscript(i: vector) -> vector {
+    public subscript(i: vector) -> vector {
         // x[arange(2)]. access a range of values; x[0..<2] depends on this.
         get {
             // vector has fractional parts, and those parts get truncated
@@ -146,18 +155,16 @@ public struct vector {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+extension vector: ExpressibleByArrayLiteral {
+    public typealias ArrayLiteralElement = ScalarFloatingPointType
+    
+    public init(arrayLiteral elements: ScalarFloatingPointType...) {
+        assert(!elements.isEmpty, "Elements array cannot be empty.")
+        self.n = elements.count
+        self.count = n
+        grid = elements.map { $0.toDouble }
+    }
+}
 
 
 
