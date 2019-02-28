@@ -113,7 +113,7 @@ precedencegroup ComparisonPrecedence {
 }
 precedencegroup Additive { higherThan: ComparisonPrecedence }
 precedencegroup Multiplicative { higherThan: Additive }
-infix operator  / : Multiplicative
+//infix operator  / : Multiplicative
 func / (lhs: Int, rhs: Int) -> Double{
     return lhs.double / rhs.double}
 func / (lhs: Double, rhs: Int) -> Double{

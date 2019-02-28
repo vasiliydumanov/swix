@@ -123,7 +123,7 @@ func /= (x: inout vector, right: Double){
     x = x / right}
 
 // MOD
-infix operator % : Multiplicative
+//infix operator % : Multiplicative
 func % (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: "%", rhs: rhs)}
 func % (lhs: vector, rhs: vector) -> vector{
@@ -131,7 +131,7 @@ func % (lhs: vector, rhs: vector) -> vector{
 func % (lhs: Double, rhs: vector) -> vector{
     return make_operator(lhs, operation: "%", rhs: rhs)}
 // POW
-infix operator ^ : Multiplicative
+//infix operator ^ : Multiplicative
 func ^ (lhs: vector, rhs: Double) -> vector{
     return pow(lhs, power: rhs)}
 func ^ (lhs: vector, rhs: vector) -> vector{
@@ -139,7 +139,7 @@ func ^ (lhs: vector, rhs: vector) -> vector{
 func ^ (lhs: Double, rhs: vector) -> vector{
     return pow(lhs, y: rhs)}
 // PLUS
-infix operator + : Additive
+//infix operator + : Additive
 func + (lhs: vector, rhs: vector) -> vector{
     return make_operator(lhs, operation: "+", rhs: rhs)}
 func + (lhs: Double, rhs: vector) -> vector{
@@ -147,7 +147,7 @@ func + (lhs: Double, rhs: vector) -> vector{
 func + (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: "+", rhs: rhs)}
 // MINUS
-infix operator - : Additive
+//infix operator - : Additive
 func - (lhs: vector, rhs: vector) -> vector{
     return make_operator(lhs, operation: "-", rhs: rhs)}
 func - (lhs: Double, rhs: vector) -> vector{
@@ -155,7 +155,7 @@ func - (lhs: Double, rhs: vector) -> vector{
 func - (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: "-", rhs: rhs)}
 // TIMES
-infix operator * : Multiplicative
+//infix operator * : Multiplicative
 func * (lhs: vector, rhs: vector) -> vector{
     return make_operator(lhs, operation: "*", rhs: rhs)}
 func * (lhs: Double, rhs: vector) -> vector{
@@ -163,7 +163,7 @@ func * (lhs: Double, rhs: vector) -> vector{
 func * (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: "*", rhs: rhs)}
 // DIVIDE
-infix operator / : Multiplicative
+//infix operator / : Multiplicative
 func / (lhs: vector, rhs: vector) -> vector{
     return make_operator(lhs, operation: "/", rhs: rhs)
     }
@@ -172,7 +172,7 @@ func / (lhs: Double, rhs: vector) -> vector{
 func / (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: "/", rhs: rhs)}
 // LESS THAN
-infix operator < : ComparisonPrecedence
+//infix operator < : ComparisonPrecedence
 func < (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: "<", rhs: rhs)}
 func < (lhs: vector, rhs: vector) -> vector{
@@ -180,7 +180,7 @@ func < (lhs: vector, rhs: vector) -> vector{
 func < (lhs: Double, rhs: vector) -> vector{
     return make_operator(lhs, operation: "<", rhs: rhs)}
 // GREATER THAN
-infix operator > : ComparisonPrecedence
+//infix operator > : ComparisonPrecedence
 func > (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: ">", rhs: rhs)}
 func > (lhs: vector, rhs: vector) -> vector{
@@ -188,7 +188,7 @@ func > (lhs: vector, rhs: vector) -> vector{
 func > (lhs: Double, rhs: vector) -> vector{
     return make_operator(lhs, operation: ">", rhs: rhs)}
 // GREATER THAN OR EQUAL
-infix operator >= : ComparisonPrecedence
+//infix operator >= : ComparisonPrecedence
 func >= (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: ">=", rhs: rhs)}
 func >= (lhs: vector, rhs: vector) -> vector{
@@ -196,7 +196,7 @@ func >= (lhs: vector, rhs: vector) -> vector{
 func >= (lhs: Double, rhs: vector) -> vector{
     return make_operator(lhs, operation: ">=", rhs: rhs)}
 // LESS THAN OR EQUAL
-infix operator <= : ComparisonPrecedence
+//infix operator <= : ComparisonPrecedence
 func <= (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: "<=", rhs: rhs)}
 func <= (lhs: vector, rhs: vector) -> vector{
@@ -204,7 +204,7 @@ func <= (lhs: vector, rhs: vector) -> vector{
 func <= (lhs: Double, rhs: vector) -> vector{
     return make_operator(lhs, operation: "<=", rhs: rhs)}
 // LOGICAL AND
-infix operator && : Additive
+//infix operator && : Additive
 func && (lhs: vector, rhs: vector) -> vector{
     return logical_and(lhs, y: rhs)}
 // LOGICAL OR
