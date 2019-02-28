@@ -154,6 +154,9 @@ public func - (lhs: Double, rhs: vector) -> vector{
     return make_operator(lhs, operation: "-", rhs: rhs)}
 public func - (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: "-", rhs: rhs)}
+public prefix func - (this: vector) -> vector {
+    return apply_function(-, x: this)
+}
 // TIMES
 //infix operator * : Multiplicative
 public func * (lhs: vector, rhs: vector) -> vector{
