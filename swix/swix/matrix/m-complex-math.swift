@@ -68,8 +68,10 @@ func inv(_ x: matrix) -> matrix{
     var work = [CDouble](repeating: 0.0, count: Int(lwork))
     var info:__CLPK_integer=0
     var nc = __CLPK_integer(N)
-    dgetrf_(&nc, &nc, !y, &nc, &ipiv, &info)
-    dgetri_(&nc, !y, &nc, &ipiv, &work, &lwork, &info)
+    withUnsafeMutablePointer(to: &nc) {
+        dgetrf_($0, $0, !y, $0, &ipiv, &info)
+        dgetri_($0, !y, $0, &ipiv, &work, &lwork, &info)
+    }
     return y
 }
 func solve(_ A: matrix, b: vector) -> vector{
@@ -100,9 +102,11 @@ func eig(_ x: matrix)->vector{
     
     work[0] = Double(lwork)
     var nc = __CLPK_integer(n)
-    dgeev_(&jobvl, &jobvr, &nc, !x, &nc,
-        !value_real, !value_imag, !vector, &nc, !vector, &nc,
-        &work, &lwork, &info)
+    withUnsafeMutablePointer(to: &nc) {
+        dgeev_(&jobvl, &jobvr, $0, !x, $0,
+               !value_real, !value_imag, !vector, $0, !vector, $0,
+               &work, &lwork, &info)
+    }
     
     vector = vector.T
     

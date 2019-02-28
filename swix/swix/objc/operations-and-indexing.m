@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <Accelerate/Accelerate.h>
 #import <stdint.h>
+#import "operations-and-indexing.h"
+
 void test(){
     int N = 1000;
     double * x = (double*)malloc(sizeof(double) * N);

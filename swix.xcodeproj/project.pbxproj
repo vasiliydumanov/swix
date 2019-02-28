@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E9EBB8722280E1C0033495C /* swix_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9EBB8522280E1C0033495C /* swix_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E9EBB8F222816580033495C /* complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88FC41D00BB9C0062B7DC /* complex-math.swift */; };
+		3E9EBB90222816580033495C /* helper-functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88FC51D00BB9C0062B7DC /* helper-functions.swift */; };
+		3E9EBB91222816580033495C /* initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88FC61D00BB9C0062B7DC /* initing.swift */; };
+		3E9EBB92222816580033495C /* operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88FC71D00BB9C0062B7DC /* operators.swift */; };
+		3E9EBB93222816580033495C /* simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88FC81D00BB9C0062B7DC /* simple-math.swift */; };
+		3E9EBB94222816580033495C /* vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88FC91D00BB9C0062B7DC /* vector.swift */; };
+		3E9EBB95222816580033495C /* imshow.py in Sources */ = {isa = PBXBuildFile; fileRef = D2D2163A1B629E8E00489EB9 /* imshow.py */; };
+		3E9EBB96222816580033495C /* io.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2163B1B629E8E00489EB9 /* io.swift */; };
+		3E9EBB97222816580033495C /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2164D1B629E8E00489EB9 /* numbers.swift */; };
+		3E9EBB98222816580033495C /* machine_learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2163D1B629E8E00489EB9 /* machine_learning.swift */; };
+		3E9EBB99222816670033495C /* m-complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2163F1B629E8E00489EB9 /* m-complex-math.swift */; };
+		3E9EBB9A222816670033495C /* m-helper-functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216401B629E8E00489EB9 /* m-helper-functions.swift */; };
+		3E9EBB9C222816670033495C /* m-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216421B629E8E00489EB9 /* m-initing.swift */; };
+		3E9EBB9D222816670033495C /* m-matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216431B629E8E00489EB9 /* m-matrix.swift */; };
+		3E9EBB9E222816670033495C /* m-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216441B629E8E00489EB9 /* m-operators.swift */; };
+		3E9EBB9F222816670033495C /* m-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216451B629E8E00489EB9 /* m-simple-math.swift */; };
+		3E9EBBA0222816670033495C /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2164F1B629E8E00489EB9 /* conversion.swift */; };
+		3E9EBBA1222816670033495C /* machine_learning.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2D216501B629E8E00489EB9 /* machine_learning.mm */; };
+		3E9EBBA2222816670033495C /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D216511B629E8E00489EB9 /* math.m */; };
+		3E9EBBA4222816670033495C /* opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2D216531B629E8E00489EB9 /* opencv.mm */; };
+		3E9EBBA5222816670033495C /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D216551B629E8E00489EB9 /* operations-and-indexing.m */; };
+		3E9EBBA6222816670033495C /* ScalarArithmetic-bleed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216571B629E8E00489EB9 /* ScalarArithmetic-bleed.swift */; };
+		3E9EBBA7222816D90033495C /* OpenCV.h in Headers */ = {isa = PBXBuildFile; fileRef = D2D216521B629E8E00489EB9 /* OpenCV.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E9EBBAA222817240033495C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9EBBA9222817240033495C /* Accelerate.framework */; };
+		3E9EBBAE222817BA0033495C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D216541B629E8E00489EB9 /* opencv2.framework */; };
+		3E9EBBB122281A210033495C /* operations-and-indexing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9EBBB0222819C60033495C /* operations-and-indexing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D24D7133199272E600D4B9D8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24D7132199272E600D4B9D8 /* opencv2.framework */; };
 		D2B481B0196F20E400DAEDFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481AF196F20E400DAEDFF /* Foundation.framework */; };
 		D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481B1196F20EB00DAEDFF /* Accelerate.framework */; };
@@ -15,7 +42,6 @@
 		D2D2165E1B629E8E00489EB9 /* machine_learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2163D1B629E8E00489EB9 /* machine_learning.swift */; };
 		D2D2165F1B629E8E00489EB9 /* m-complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2163F1B629E8E00489EB9 /* m-complex-math.swift */; };
 		D2D216601B629E8E00489EB9 /* m-helper-functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216401B629E8E00489EB9 /* m-helper-functions.swift */; };
-		D2D216611B629E8E00489EB9 /* m-image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216411B629E8E00489EB9 /* m-image.swift */; };
 		D2D216621B629E8E00489EB9 /* m-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216421B629E8E00489EB9 /* m-initing.swift */; };
 		D2D216631B629E8E00489EB9 /* m-matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216431B629E8E00489EB9 /* m-matrix.swift */; };
 		D2D216641B629E8E00489EB9 /* m-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216441B629E8E00489EB9 /* m-operators.swift */; };
@@ -50,7 +76,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D24A8551196D7D73009C18AC /* swix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = swix; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E9EBB8322280E1C0033495C /* swix_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = swix_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E9EBB8522280E1C0033495C /* swix_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = swix_ios.h; sourceTree = "<group>"; };
+		3E9EBB8622280E1C0033495C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E9EBBA9222817240033495C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		3E9EBBAB222817460033495C /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../../../../Documents/swix/swix/swix/objc/opencv2.framework; sourceTree = "<group>"; };
+		3E9EBBB0222819C60033495C /* operations-and-indexing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "operations-and-indexing.h"; sourceTree = "<group>"; };
+		D24A8551196D7D73009C18AC /* swix-mac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "swix-mac"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24D7132199272E600D4B9D8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = swix/swix/objc/opencv2.framework; sourceTree = "<group>"; };
 		D2B481AF196F20E400DAEDFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2B481B1196F20EB00DAEDFF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -60,7 +92,6 @@
 		D2D2163D1B629E8E00489EB9 /* machine_learning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = machine_learning.swift; sourceTree = "<group>"; };
 		D2D2163F1B629E8E00489EB9 /* m-complex-math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "m-complex-math.swift"; sourceTree = "<group>"; };
 		D2D216401B629E8E00489EB9 /* m-helper-functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "m-helper-functions.swift"; sourceTree = "<group>"; };
-		D2D216411B629E8E00489EB9 /* m-image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "m-image.swift"; sourceTree = "<group>"; };
 		D2D216421B629E8E00489EB9 /* m-initing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "m-initing.swift"; sourceTree = "<group>"; };
 		D2D216431B629E8E00489EB9 /* m-matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "m-matrix.swift"; sourceTree = "<group>"; };
 		D2D216441B629E8E00489EB9 /* m-operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "m-operators.swift"; sourceTree = "<group>"; };
@@ -86,6 +117,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3E9EBB8022280E1C0033495C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9EBBAE222817BA0033495C /* opencv2.framework in Frameworks */,
+				3E9EBBAA222817240033495C /* Accelerate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D24A854E196D7D73009C18AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -99,21 +139,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E9EBB8422280E1C0033495C /* swix-ios */ = {
+			isa = PBXGroup;
+			children = (
+				3E9EBB8522280E1C0033495C /* swix_ios.h */,
+				3E9EBB8622280E1C0033495C /* Info.plist */,
+			);
+			path = "swix-ios";
+			sourceTree = "<group>";
+		};
+		3E9EBBA8222817230033495C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E9EBBAB222817460033495C /* opencv2.framework */,
+				3E9EBBA9222817240033495C /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D24A8548196D7D73009C18AC = {
 			isa = PBXGroup;
 			children = (
 				D24D7132199272E600D4B9D8 /* opencv2.framework */,
 				D2B481B1196F20EB00DAEDFF /* Accelerate.framework */,
 				D2B481AF196F20E400DAEDFF /* Foundation.framework */,
+				3E9EBB8422280E1C0033495C /* swix-ios */,
 				D24A8552196D7D73009C18AC /* Products */,
 				D2D216371B629E8E00489EB9 /* swix */,
+				3E9EBBA8222817230033495C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		D24A8552196D7D73009C18AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D24A8551196D7D73009C18AC /* swix */,
+				D24A8551196D7D73009C18AC /* swix-mac */,
+				3E9EBB8322280E1C0033495C /* swix_ios.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,7 +218,6 @@
 			children = (
 				D2D2163F1B629E8E00489EB9 /* m-complex-math.swift */,
 				D2D216401B629E8E00489EB9 /* m-helper-functions.swift */,
-				D2D216411B629E8E00489EB9 /* m-image.swift */,
 				D2D216421B629E8E00489EB9 /* m-initing.swift */,
 				D2D216431B629E8E00489EB9 /* m-matrix.swift */,
 				D2D216441B629E8E00489EB9 /* m-operators.swift */,
@@ -177,6 +237,7 @@
 				D2D216541B629E8E00489EB9 /* opencv2.framework */,
 				D2D216551B629E8E00489EB9 /* operations-and-indexing.m */,
 				D2D216561B629E8E00489EB9 /* swix-Bridging-Header.h */,
+				3E9EBBB0222819C60033495C /* operations-and-indexing.h */,
 			);
 			path = objc;
 			sourceTree = "<group>";
@@ -212,10 +273,41 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		3E9EBB7E22280E1C0033495C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9EBB8722280E1C0033495C /* swix_ios.h in Headers */,
+				3E9EBBA7222816D90033495C /* OpenCV.h in Headers */,
+				3E9EBBB122281A210033495C /* operations-and-indexing.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		D24A8550196D7D73009C18AC /* swix */ = {
+		3E9EBB8222280E1C0033495C /* swix-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D24A8558196D7D73009C18AC /* Build configuration list for PBXNativeTarget "swix" */;
+			buildConfigurationList = 3E9EBB8822280E1C0033495C /* Build configuration list for PBXNativeTarget "swix-ios" */;
+			buildPhases = (
+				3E9EBB7E22280E1C0033495C /* Headers */,
+				3E9EBB7F22280E1C0033495C /* Sources */,
+				3E9EBB8022280E1C0033495C /* Frameworks */,
+				3E9EBB8122280E1C0033495C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "swix-ios";
+			productName = "swix-ios";
+			productReference = 3E9EBB8322280E1C0033495C /* swix_ios.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D24A8550196D7D73009C18AC /* swix-mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D24A8558196D7D73009C18AC /* Build configuration list for PBXNativeTarget "swix-mac" */;
 			buildPhases = (
 				D24A854D196D7D73009C18AC /* Sources */,
 				D24A854E196D7D73009C18AC /* Frameworks */,
@@ -225,9 +317,9 @@
 			);
 			dependencies = (
 			);
-			name = swix;
+			name = "swix-mac";
 			productName = swix;
-			productReference = D24A8551196D7D73009C18AC /* swix */;
+			productReference = D24A8551196D7D73009C18AC /* swix-mac */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -241,6 +333,11 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = com.scott;
 				TargetAttributes = {
+					3E9EBB8222280E1C0033495C = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = 8X676Z47A4;
+						ProvisioningStyle = Automatic;
+					};
 					D24A8550196D7D73009C18AC = {
 						CreatedOnToolsVersion = 6.0;
 						LastSwiftMigration = 0800;
@@ -259,12 +356,52 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D24A8550196D7D73009C18AC /* swix */,
+				D24A8550196D7D73009C18AC /* swix-mac */,
+				3E9EBB8222280E1C0033495C /* swix-ios */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		3E9EBB8122280E1C0033495C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		3E9EBB7F22280E1C0033495C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9EBB99222816670033495C /* m-complex-math.swift in Sources */,
+				3E9EBB9A222816670033495C /* m-helper-functions.swift in Sources */,
+				3E9EBB9C222816670033495C /* m-initing.swift in Sources */,
+				3E9EBB9D222816670033495C /* m-matrix.swift in Sources */,
+				3E9EBB9E222816670033495C /* m-operators.swift in Sources */,
+				3E9EBB9F222816670033495C /* m-simple-math.swift in Sources */,
+				3E9EBBA0222816670033495C /* conversion.swift in Sources */,
+				3E9EBBA1222816670033495C /* machine_learning.mm in Sources */,
+				3E9EBBA2222816670033495C /* math.m in Sources */,
+				3E9EBBA4222816670033495C /* opencv.mm in Sources */,
+				3E9EBBA5222816670033495C /* operations-and-indexing.m in Sources */,
+				3E9EBBA6222816670033495C /* ScalarArithmetic-bleed.swift in Sources */,
+				3E9EBB8F222816580033495C /* complex-math.swift in Sources */,
+				3E9EBB90222816580033495C /* helper-functions.swift in Sources */,
+				3E9EBB91222816580033495C /* initing.swift in Sources */,
+				3E9EBB92222816580033495C /* operators.swift in Sources */,
+				3E9EBB93222816580033495C /* simple-math.swift in Sources */,
+				3E9EBB94222816580033495C /* vector.swift in Sources */,
+				3E9EBB95222816580033495C /* imshow.py in Sources */,
+				3E9EBB96222816580033495C /* io.swift in Sources */,
+				3E9EBB97222816580033495C /* numbers.swift in Sources */,
+				3E9EBB98222816580033495C /* machine_learning.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D24A854D196D7D73009C18AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,7 +415,6 @@
 				D2D216741B629E8E00489EB9 /* speed.swift in Sources */,
 				D2D2165F1B629E8E00489EB9 /* m-complex-math.swift in Sources */,
 				D2D88FCC1D00BB9C0062B7DC /* initing.swift in Sources */,
-				D2D216611B629E8E00489EB9 /* m-image.swift in Sources */,
 				D2D2166D1B629E8E00489EB9 /* conversion.swift in Sources */,
 				D2D216601B629E8E00489EB9 /* m-helper-functions.swift in Sources */,
 				D2D2165C1B629E8E00489EB9 /* main.swift in Sources */,
@@ -300,6 +436,114 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		3E9EBB8922280E1C0033495C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8X676Z47A4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/swix/swix/objc",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "swix-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.weezlabs.swix-ios";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3E9EBB8A22280E1C0033495C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8X676Z47A4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/swix/swix/objc",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "swix-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.weezlabs.swix-ios";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		D24A8556196D7D73009C18AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -414,6 +658,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3E9EBB8822280E1C0033495C /* Build configuration list for PBXNativeTarget "swix-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E9EBB8922280E1C0033495C /* Debug */,
+				3E9EBB8A22280E1C0033495C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D24A854C196D7D73009C18AC /* Build configuration list for PBXProject "swix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -423,7 +676,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D24A8558196D7D73009C18AC /* Build configuration list for PBXNativeTarget "swix" */ = {
+		D24A8558196D7D73009C18AC /* Build configuration list for PBXNativeTarget "swix-mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D24A8559196D7D73009C18AC /* Debug */,
