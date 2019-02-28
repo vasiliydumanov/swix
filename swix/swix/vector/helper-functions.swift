@@ -162,29 +162,29 @@ public func logical_xor(_ x:vector, y:vector)->vector{
 }
 
 // PRINTING
-public func println(_ x: vector, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printAllElements:Bool=false){
-    // print the matrix
-    print(prefix, terminator: "")
-    var suffix = seperator
-    var printed = false
-    var string:NSString
-    for i in 0..<x.n{
-        if i==x.n-1 { suffix = "" }
-        if printAllElements || (x.n)<16 || i<3 || i>(x.n-4){
-            string = NSString(format: (format+suffix) as NSString, x[i])
-            print(String(string), terminator:"")
-        }
-        else if printed == false{
-            printed = true
-            print("..., ", terminator: "")
-        }
-    }
-    print(postfix, terminator: "")
-    print(newline, terminator: "")
-}
-public func print(_ x: vector, prefix:String="vector([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
-    println(x, prefix:prefix, postfix:postfix, newline:"\n", format:format, printAllElements:printWholeMatrix)
-}
+//public func println(_ x: vector, prefix:String="array([", postfix:String="])", newline:String="\n", format:String="%.3f", seperator:String=", ", printAllElements:Bool=false){
+//    // print the matrix
+//    print(prefix, terminator: "")
+//    var suffix = seperator
+//    var printed = false
+//    var string:NSString
+//    for i in 0..<x.n{
+//        if i==x.n-1 { suffix = "" }
+//        if printAllElements || (x.n)<16 || i<3 || i>(x.n-4){
+//            string = NSString(format: (format+suffix) as NSString, x[i])
+//            print(String(string), terminator:"")
+//        }
+//        else if printed == false{
+//            printed = true
+//            print("..., ", terminator: "")
+//        }
+//    }
+//    print(postfix, terminator: "")
+//    print(newline, terminator: "")
+//}
+//public func print(_ x: vector, prefix:String="vector([", postfix:String="])", format:String="%.3f", printWholeMatrix:Bool=false){
+//    println(x, prefix:prefix, postfix:postfix, newline:"\n", format:format, printAllElements:printWholeMatrix)
+//}
 
 
 

@@ -167,4 +167,11 @@ extension vector: ExpressibleByArrayLiteral {
 }
 
 
+extension vector: CustomStringConvertible {
+    public var description: String {
+        return "vector(\(grid))"
+    }
+}
+
+
 

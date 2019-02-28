@@ -71,7 +71,9 @@ extension  CGFloat : ScalarFloatingPointType, FloatingPointMathType {
   public func __conversion() -> Double { return Double(self) }
 }
 
-extension  Float : ScalarFloatingPointType { public var toDouble:Double { return Double(self)      } }
+extension Float : ScalarFloatingPointType { public var toDouble:Double { return Double(self)      } }
+
+extension Double : ScalarFloatingPointType { public var toDouble:Double { return self } }
 
 public protocol ScalarIntegerType : ScalarFloatingPointType {
    var toInt:Int { get }

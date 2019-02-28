@@ -114,34 +114,34 @@ public func triu(_ x: matrix)->vector{
 }
 
 // PRINTING
-public func println(_ x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
-    print(prefix, terminator: "")
-    var pre:String
-    var post:String
-    var printedSpacer = false
-    for i in 0..<x.shape.0{
-        // pre and post nice -- internal variables
-        if i==0 {pre = ""}
-        else {pre = "        "}
-        if i==x.shape.0-1 {post=postfix}
-        else {post = "],"}
-        
-        if printWholeMatrix || x.shape.0 < 16 || i<4-1 || i>x.shape.0-4{
-            print(x[i, 0..<x.shape.1], prefix:pre, postfix:post, format: format, printWholeMatrix:printWholeMatrix)
-        }
-        else if printedSpacer==false{
-            printedSpacer=true
-            Swift.print("        ...,")
-        }
-    }
-    print(newline, terminator: "")
-}
+//public func println(_ x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
+//    print(prefix, terminator: "")
+//    var pre:String
+//    var post:String
+//    var printedSpacer = false
+//    for i in 0..<x.shape.0{
+//        // pre and post nice -- internal variables
+//        if i==0 {pre = ""}
+//        else {pre = "        "}
+//        if i==x.shape.0-1 {post=postfix}
+//        else {post = "],"}
+//
+//        if printWholeMatrix || x.shape.0 < 16 || i<4-1 || i>x.shape.0-4{
+//            print(x[i, 0..<x.shape.1], prefix:pre, postfix:post, format: format, printWholeMatrix:printWholeMatrix)
+//        }
+//        else if printedSpacer==false{
+//            printedSpacer=true
+//            Swift.print("        ...,")
+//        }
+//    }
+//    print(newline, terminator: "")
+//}
 public func max(_ x: matrix, axis:Int = -1)->Double{
     return x.max()
 }
 public func min(_ x: matrix, axis:Int = -1)->Double{
     return x.min()
 }
-public func print(_ x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
-    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
-}
+//public func print(_ x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
+//    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)
+//}

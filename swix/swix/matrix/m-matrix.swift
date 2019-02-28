@@ -18,6 +18,9 @@ public struct matrix {
     public var T:matrix {return transpose(self)}
     public var I:matrix {return inv(self)}
     public var pI:matrix {return pinv(self)}
+    public var grid: [[Double]] {
+        return flat.grid.chunked(into: columns)
+    }
     
     public init(columns: Int, rows: Int) {
         self.n = rows * columns
@@ -253,6 +256,12 @@ extension matrix: ExpressibleByArrayLiteral {
         self.shape = (rows, columns)
         self.count = n
         self.flat = vector(elements.flatMap { $0 })
+    }
+}
+
+extension matrix: CustomStringConvertible {
+    public var description: String {
+        return "matrix(\(grid))"
     }
 }
 

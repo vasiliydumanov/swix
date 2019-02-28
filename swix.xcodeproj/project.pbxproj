@@ -34,6 +34,8 @@
 		3E9EBBAA222817240033495C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9EBBA9222817240033495C /* Accelerate.framework */; };
 		3E9EBBAE222817BA0033495C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D216541B629E8E00489EB9 /* opencv2.framework */; };
 		3E9EBBB122281A210033495C /* operations-and-indexing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9EBBB0222819C60033495C /* operations-and-indexing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E9EBC3D22288D610033495C /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9EBC3C22288D610033495C /* ArrayExtensions.swift */; };
+		3E9EBC3E22288DAB0033495C /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9EBC3C22288D610033495C /* ArrayExtensions.swift */; };
 		D24D7133199272E600D4B9D8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24D7132199272E600D4B9D8 /* opencv2.framework */; };
 		D2B481B0196F20E400DAEDFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481AF196F20E400DAEDFF /* Foundation.framework */; };
 		D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481B1196F20EB00DAEDFF /* Accelerate.framework */; };
@@ -82,6 +84,7 @@
 		3E9EBBA9222817240033495C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 		3E9EBBAB222817460033495C /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../../../../Documents/swix/swix/swix/objc/opencv2.framework; sourceTree = "<group>"; };
 		3E9EBBB0222819C60033495C /* operations-and-indexing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "operations-and-indexing.h"; sourceTree = "<group>"; };
+		3E9EBC3C22288D610033495C /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		D24A8551196D7D73009C18AC /* swix-mac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "swix-mac"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24D7132199272E600D4B9D8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = swix/swix/objc/opencv2.framework; sourceTree = "<group>"; };
 		D2B481AF196F20E400DAEDFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -201,6 +204,7 @@
 				D2D216571B629E8E00489EB9 /* ScalarArithmetic-bleed.swift */,
 				D2D216581B629E8E00489EB9 /* swift-complex */,
 				D2D216591B629E8E00489EB9 /* tests */,
+				3E9EBC3C22288D610033495C /* ArrayExtensions.swift */,
 			);
 			path = swix;
 			sourceTree = "<group>";
@@ -381,6 +385,7 @@
 				3E9EBB9A222816670033495C /* m-helper-functions.swift in Sources */,
 				3E9EBB9C222816670033495C /* m-initing.swift in Sources */,
 				3E9EBB9D222816670033495C /* m-matrix.swift in Sources */,
+				3E9EBC3E22288DAB0033495C /* ArrayExtensions.swift in Sources */,
 				3E9EBB9E222816670033495C /* m-operators.swift in Sources */,
 				3E9EBB9F222816670033495C /* m-simple-math.swift in Sources */,
 				3E9EBBA0222816670033495C /* conversion.swift in Sources */,
@@ -423,6 +428,7 @@
 				D2D216701B629E8E00489EB9 /* opencv.mm in Sources */,
 				D2D216621B629E8E00489EB9 /* m-initing.swift in Sources */,
 				D2D2166E1B629E8E00489EB9 /* machine_learning.mm in Sources */,
+				3E9EBC3D22288D610033495C /* ArrayExtensions.swift in Sources */,
 				D2D2165D1B629E8E00489EB9 /* io.swift in Sources */,
 				D2D88FCD1D00BB9C0062B7DC /* operators.swift in Sources */,
 				D2D2165E1B629E8E00489EB9 /* machine_learning.swift in Sources */,
