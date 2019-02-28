@@ -16,6 +16,12 @@ public func apply_function(_ function: (vector)->vector, x: matrix)->matrix{
     return z
 }
 
+public func apply_function_flat(_ function: (Double) -> Double, x: matrix) -> matrix {
+    return apply_function(
+        { apply_function(function, x: $0) },
+        x: x)
+}
+
 // TRIG
 public func sin(_ x: matrix) -> matrix{
     return apply_function(sin, x: x)
