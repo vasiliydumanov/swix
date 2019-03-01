@@ -204,3 +204,10 @@ public func <= (lhs: matrix, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "<=", rhs: rhs)}
 public func <= (lhs: Double, rhs: matrix) -> matrix{
     return make_operator(lhs, operation: "<=", rhs: rhs)}
+// BOOL
+public func && (lhs: matrix, rhs: matrix) -> matrix{
+    return (lhs.flat && rhs.flat).reshape(lhs.shape)
+}
+public func || (lhs: matrix, rhs: matrix) -> matrix{
+    return (lhs.flat || rhs.flat).reshape(lhs.shape)
+}

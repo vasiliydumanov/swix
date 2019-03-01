@@ -24,7 +24,9 @@ let filename = "/tmp/test_2016.csv"
 write_csv(csv, filename:filename)
 var y:CSVFile = read_csv(filename, header_present:true)
 
-let mat = matrix([[1, 2], [3, 4]])
-let vec = matrix([[1], [4]])
-print(mat == vec)
+let m1 = matrix([[1, 0],
+                 [0, 1]])
+let m2 = matrix([[1, 1],
+                 [1, 0]])
+print(m1 && m2)
 
