@@ -37,7 +37,7 @@ public func make_operator(_ lhs:vector, operation:String, rhs:vector) -> vector{
         return abs(lhs-rhs) < S2_THRESHOLD
     }
     else if operation == "!=="{
-        return abs(lhs-rhs) > S2_THRESHOLD
+        return abs(lhs-rhs) >= S2_THRESHOLD
     }
     else {assert(false, "operation not recongized!")}
     return result
@@ -60,6 +60,11 @@ public func make_operator(_ lhs:vector, operation:String, rhs:Double) -> vector{
         {vDSP_vsdivD(!lhs, 1, &right, !array, 1, lhs.n.length)}
     else if operation=="-"
         {array = make_operator(lhs, operation: "-", rhs: ones(lhs.n)*rhs)}
+    else if operation == "==" {
+        return abs(lhs-rhs) < S2_THRESHOLD
+    } else if operation == "!==" {
+        return abs(lhs-rhs) >= S2_THRESHOLD
+    }
     else if operation=="<" || operation==">" || operation=="<=" || operation==">="{
         CVWrapper.compare(!lhs, with:rhs.cdouble, using:operation.nsstring as String, into:!array, ofLength:lhs.n.cint)
         array /= 255
@@ -110,6 +115,10 @@ public func ~== (lhs: vector, rhs: vector) -> Bool{
 public func == (lhs: vector, rhs: vector) -> vector{
     return make_operator(lhs, operation: "==", rhs: rhs)}
 public func !== (lhs: vector, rhs: vector) -> vector{
+    return make_operator(lhs, operation: "!==", rhs: rhs)}
+public func == (lhs: vector, rhs: Double) -> vector{
+    return make_operator(lhs, operation: "==", rhs: rhs)}
+public func !== (lhs: vector, rhs: Double) -> vector{
     return make_operator(lhs, operation: "!==", rhs: rhs)}
 
 // NICE ARITHMETIC

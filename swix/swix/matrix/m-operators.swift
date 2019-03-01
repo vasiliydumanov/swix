@@ -9,7 +9,7 @@
 import Foundation
 import Accelerate
 
-public func make_operator(_ lhs: matrix, operation: String, rhs: matrix)->matrix{
+private func equalizeShapes(_ lhs: matrix, rhs: matrix) -> (lhs: vector, rhs: vector, shape: (Int, Int)) {
     assert(lhs.shape.0 == rhs.shape.0 || lhs.shape.0 == 1 || rhs.shape.0 == 1, "0-axes size must match or be equal to 1.")
     assert(lhs.shape.1 == rhs.shape.1 || lhs.shape.1 == 1 || rhs.shape.1 == 1, "1-axes size must match or be equal to 1.")
     
@@ -52,6 +52,12 @@ public func make_operator(_ lhs: matrix, operation: String, rhs: matrix)->matrix
             resShape = lhs.shape
         }
     }
+    
+    return (lhsV, rhsV, resShape)
+}
+
+public func make_operator(_ lhs: matrix, operation: String, rhs: matrix)->matrix{
+    let (lhsV, rhsV, resShape) = equalizeShapes(lhs, rhs: rhs)
     
     var result = zeros(resShape) // real result
     var resV:vector = zeros_like(lhsV) // flat vector
@@ -115,11 +121,21 @@ public func ~== (lhs: matrix, rhs: matrix) -> Bool{
 
 //infix operator == : ComparisonPrecedence
 public func == (lhs: matrix, rhs: matrix)->matrix{
-    return (lhs.flat == rhs.flat).reshape(lhs.shape)
+    assert(lhs.count >= rhs.count, "Left matrix must be bigger than right.")
+    let (lhsV, rhsV, shape) = equalizeShapes(lhs, rhs: rhs)
+    return (lhsV == rhsV).reshape(shape)
 }
 infix operator !== : ComparisonPrecedence
 public func !== (lhs: matrix, rhs: matrix)->matrix{
-    return (lhs.flat !== rhs.flat).reshape(lhs.shape)
+    assert(lhs.count >= rhs.count, "Left matrix must be bigger than right.")
+    let (lhsV, rhsV, shape) = equalizeShapes(lhs, rhs: rhs)
+    return (lhsV !== rhsV).reshape(shape)
+}
+public func == (lhs: matrix, rhs: Double)->matrix{
+    return (lhs.flat == rhs).reshape(lhs.shape)
+}
+public func !== (lhs: matrix, rhs: Double)->matrix{
+    return (lhs.flat !== rhs).reshape(lhs.shape)
 }
 
 /// ELEMENT WISE OPERATORS
