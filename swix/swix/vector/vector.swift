@@ -112,14 +112,15 @@ public struct vector {
             // vector has fractional parts, and those parts get truncated
             var idx:vector
             if i.n > 0 {
-                if i.n == self.n && i.max() < 1.5 {
-                    // assumed to be boolean
-                    idx = argwhere(i > 0.5)
-                }
-                else {
-                    // it's just indexes
-                    idx = i.copy()
-                }
+//                if i.n == self.n && i.max() < 1.5 {
+//                    // assumed to be boolean
+//                    idx = argwhere(i > 0.5)
+//                }
+//                else {
+//                    // it's just indexes
+//                    idx = i.copy()
+//                }
+                idx = i.copy()
                 if idx.max() < 0 {
                     // negative indexing
                     idx += n.double
