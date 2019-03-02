@@ -24,15 +24,8 @@ let filename = "/tmp/test_2016.csv"
 write_csv(csv, filename:filename)
 var y:CSVFile = read_csv(filename, header_present:true)
 
-let m1 = matrix([[1, 2],
-                 [3, 4]])
+let m1 = matrix([[3, 0],
+                 [2, 1]])
 
-let v1h = hexplode(m1)
-let v1v = vexplode(m1)
-
-let m1h = hstack(v1h)
-let m2h = vstack(v1v)
-
-print(m1h)
-print(m2h)
-
+print(argmax(m1, axis: 0))
+print(argmax(m1, axis: 1))

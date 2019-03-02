@@ -10,40 +10,56 @@ import Foundation
 
 // Exploding/Concatenating
 
-public func hexplode(_ x: matrix) -> [vector] {
+public func explode(_ x: matrix, axis: Int = 0) -> [vector] {
     var vecs: [vector] = []
-    for i in 0..<x.columns {
-        let vec = x[0..<x.rows, i]
+    for i in 0..<(axis == 0 ? x.rows : x.columns) {
+        let vec = axis == 0 ? x[i, 0..<x.columns] : x[0..<x.rows, i]
         vecs.append(vec)
     }
     return vecs
+}
+
+public func hexplode(_ x: matrix) -> [vector] {
+    return explode(x, axis: 1)
 }
 
 public func vexplode(_ x: matrix) -> [vector] {
-    var vecs: [vector] = []
-    for i in 0..<x.rows {
-        let vec = x[i, 0..<x.columns]
-        vecs.append(vec)
+    return explode(x, axis: 0)
+}
+
+public func stack(_ vecs: [vector], axis: Int = 0) -> matrix {
+    assert(vecs.allSatisfy { $0.count == vecs[0].count }, "Vectors must have equal length.")
+    var mat = zeros((vecs.count, vecs[0].count))
+    for (i, vec) in vecs.enumerated() {
+        if axis == 0 {
+            mat[i, 0..<mat.columns] = vec
+        } else {
+            mat[0..<mat.rows, i] = vec
+        }
     }
-    return vecs
+    return mat
 }
 
 public func hstack(_ vecs: [vector]) -> matrix {
-    assert(vecs.allSatisfy { $0.count == vecs[0].count }, "Vectors must have equal length.")
-    var mat = zeros((vecs.count, vecs[0].count))
-    for (i, vec) in vecs.enumerated() {
-        mat[0..<mat.rows, i] = vec
-    }
-    return mat
+    return stack(vecs, axis: 1)
 }
 
 public func vstack(_ vecs: [vector]) -> matrix {
-    assert(vecs.allSatisfy { $0.count == vecs[0].count }, "Vectors must have equal length.")
-    var mat = zeros((vecs.count, vecs[0].count))
-    for (i, vec) in vecs.enumerated() {
-        mat[i, 0..<mat.columns] = vec
-    }
-    return mat
+    return stack(vecs, axis: 0)
+}
+
+// Argmax
+
+public func argmax(_ x: matrix, axis: Int = 0) -> vector {
+    let vecs = explode(x, axis: axis == 0 ? 1 : 0)
+    let amVec = vector(vecs.map(argmax))
+    return amVec
+}
+
+public func argmin(_ x: matrix, axis: Int = 0) -> vector {
+    let vecs = explode(x, axis: axis == 0 ? 1 : 0)
+    let amVec = vector(vecs.map(argmin))
+    return amVec
 }
 
 // NORMs
