@@ -190,11 +190,18 @@ public func triu(_ x: matrix)->vector{
 //    }
 //    print(newline, terminator: "")
 //}
-public func max(_ x: matrix, axis:Int = -1)->Double{
+public func max(_ x: matrix) -> Double{
     return x.max()
 }
-public func min(_ x: matrix, axis:Int = -1)->Double{
+public func min(_ x: matrix)->Double{
     return x.min()
+}
+
+public func max(_ x: matrix, axis: Int = 0) -> vector {
+    return x.max(axis)
+}
+public func min(_ x: matrix, axis: Int = 0) -> vector {
+    return x.min(axis)
 }
 //public func print(_ x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
 //    println(x, prefix:prefix, postfix:postfix, newline:"", format:format, printWholeMatrix:printWholeMatrix)

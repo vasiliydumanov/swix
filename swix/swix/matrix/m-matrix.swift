@@ -84,21 +84,59 @@ public struct matrix {
         let z = self.dot(y)
         return z.flat
     }
-    public func min(_ axis:Int = -1) -> Double{
-        if axis == -1{
-            return self.flat.min()
-        }
-        assert(axis==0 || axis==1, "Axis must be 0 or 1 as matrix only has two dimensions")
-        assert(false, "max(x, axis:Int) for maximum of each row is not implemented yet. Use max(A.flat) or A.flat.max() to get the global maximum")
-
+    public func min() -> Double{
+        return self.flat.min()
     }
-    public func max(_ axis:Int = -1) -> Double{
-        if axis == -1 {
-            return self.flat.max()
-        }
-        assert(axis==0 || axis==1, "Axis must be 0 or 1 as matrix only has two dimensions")
-        assert(false, "max(x, axis:Int) for maximum of each row is not implemented yet. Use max(A.flat) or A.flat.max() to get the global maximum")
+    public func max() -> Double{
+        return self.flat.max()
     }
+    
+    public func max(_ axis: Int = 0) -> vector {
+        return extremum(axis, isMax: true)
+    }
+    
+    public func min(_ axis: Int = 0) -> vector {
+        return extremum(axis, isMax: false)
+    }
+    
+    func extremum(_ axis: Int = 0, isMax: Bool = true) -> vector {
+        assert(axis==0 || axis==1, "Axis must be 0 or 1 as matrix only has two dimensions")
+        
+        let strideTo: Int
+        let strideBy: Int
+        let vStride: Int
+        let vLength: Int
+        let resLength: Int
+        
+        if axis == 1 {
+            strideTo = flat.count
+            strideBy = columns
+            vStride = 1
+            vLength = columns
+            resLength = rows
+        } else {
+            strideTo = columns
+            strideBy = 1
+            vStride = columns
+            vLength = rows
+            resLength = columns
+        }
+        
+        var resVec = zeros(resLength)
+        var resVecIdx = 0
+        let flatPtr = !flat
+        for i in stride(from: 0, to: strideTo, by: strideBy) {
+            let ptr = flatPtr + i
+            var m: Double = 0
+            isMax
+                ? vDSP_maxvD(ptr, vStride.stride, &m, vLength.length)
+                : vDSP_minvD(ptr, vStride.stride, &m, vLength.length)
+            resVec[resVecIdx] = m
+            resVecIdx += 1
+        }
+        return resVec
+    }
+    
     public subscript(i: Int, j: Int) -> Double {
         // x[0,0]
         get {
