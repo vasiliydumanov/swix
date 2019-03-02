@@ -8,6 +8,44 @@
 
 import Foundation
 
+// Exploding/Concatenating
+
+public func hexplode(_ x: matrix) -> [vector] {
+    var vecs: [vector] = []
+    for i in 0..<x.columns {
+        let vec = x[0..<x.rows, i]
+        vecs.append(vec)
+    }
+    return vecs
+}
+
+public func vexplode(_ x: matrix) -> [vector] {
+    var vecs: [vector] = []
+    for i in 0..<x.rows {
+        let vec = x[i, 0..<x.columns]
+        vecs.append(vec)
+    }
+    return vecs
+}
+
+public func hstack(_ vecs: [vector]) -> matrix {
+    assert(vecs.allSatisfy { $0.count == vecs[0].count }, "Vectors must have equal length.")
+    var mat = zeros((vecs.count, vecs[0].count))
+    for (i, vec) in vecs.enumerated() {
+        mat[0..<mat.rows, i] = vec
+    }
+    return mat
+}
+
+public func vstack(_ vecs: [vector]) -> matrix {
+    assert(vecs.allSatisfy { $0.count == vecs[0].count }, "Vectors must have equal length.")
+    var mat = zeros((vecs.count, vecs[0].count))
+    for (i, vec) in vecs.enumerated() {
+        mat[i, 0..<mat.columns] = vec
+    }
+    return mat
+}
+
 // NORMs
 public func norm(_ x:matrix, ord:String="assumed to be 'fro' for Frobenius")->Double{
     if ord == "fro" {return norm(x.flat, ord:2)}

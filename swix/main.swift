@@ -10,9 +10,9 @@
 import Foundation
 import Swift
 
-_ = swixTests(run_io_tests: true)
-
-_ = swixSpeedTests()
+//_ = swixTests(run_io_tests: true)
+//
+//_ = swixSpeedTests()
 
 var x = eye(3);
 var header = ["1", "2", "3"]
@@ -24,9 +24,15 @@ let filename = "/tmp/test_2016.csv"
 write_csv(csv, filename:filename)
 var y:CSVFile = read_csv(filename, header_present:true)
 
-let m1 = matrix([[1, 0],
-                 [0, 1]])
-let m2 = matrix([[1, 1],
-                 [1, 0]])
-print(m1 && m2)
+let m1 = matrix([[1, 2],
+                 [3, 4]])
+
+let v1h = hexplode(m1)
+let v1v = vexplode(m1)
+
+let m1h = hstack(v1h)
+let m2h = vstack(v1v)
+
+print(m1h)
+print(m2h)
 
