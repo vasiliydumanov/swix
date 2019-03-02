@@ -9,9 +9,18 @@
 import Foundation
 
 public extension Array {
-    public func chunked(into size: Int) -> [[Element]] {
+    public func chunked(minSize size: Int) -> [[Element]] {
+        var arr = chunked(maxSize: size)
+        if arr[arr.count - 1].count < size {
+            arr[arr.count - 2] += arr[arr.count - 1]
+            arr.removeLast()
+        }
+        return arr
+    }
+    
+    public func chunked(maxSize size: Int) -> [[Element]] {
         return stride(from: 0, to: count, by: size).map {
-            Array(self[$0 ..< Swift.min($0 + size, count)])
+            return Array(self[$0 ..< Swift.min($0 + size, count)])
         }
     }
 }

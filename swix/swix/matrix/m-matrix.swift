@@ -19,7 +19,7 @@ public struct matrix {
     public var I:matrix {return inv(self)}
     public var pI:matrix {return pinv(self)}
     public var grid: [[Double]] {
-        return flat.grid.chunked(into: columns)
+        return flat.grid.chunked(maxSize: columns)
     }
     
     public init(columns: Int, rows: Int) {
