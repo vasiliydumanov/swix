@@ -16,7 +16,6 @@ public func write_binary(_ x:vector, filename:String){
 }
 public func read_binary(_ filename:String) -> vector{
     let read = try? Data(contentsOf: URL(fileURLWithPath: filename))
-    try? read?.write(to:URL(fileURLWithPath:filename+"x"), options:[])
     let l:Int! = read?.count
     let sD:Int = MemoryLayout<Double>.size
     let count = (l.double / sD.double)
