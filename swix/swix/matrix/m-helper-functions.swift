@@ -40,6 +40,38 @@ public func stack(_ vecs: [vector], axis: Int = 0) -> matrix {
     return mat
 }
 
+public func hstack(_ mats: [matrix]) -> matrix {
+    assert(mats.allSatisfy { $0.rows == mats[0].rows }, "Matrices must have equal number of rows.")
+    let resCols = mats.map { $0.columns }.reduce(0, +)
+    var resMat = zeros((mats[0].rows, resCols))
+    var colsImputed = 0
+    for mat in mats {
+        resMat[0..<resMat.rows, colsImputed..<(colsImputed + mat.columns)] = mat
+        colsImputed += mat.columns
+    }
+    return resMat
+}
+
+public func vstack(_ mats: [matrix]) -> matrix {
+    assert(mats.allSatisfy { $0.columns == mats[0].columns }, "Matrices must have equal number of columns.")
+    let resRows = mats.map { $0.rows }.reduce(0, +)
+    var resMat = zeros((resRows, mats[0].columns))
+    var rowsImputed = 0
+    for mat in mats {
+        resMat[rowsImputed..<(rowsImputed + mat.rows), 0..<resMat.columns] = mat
+        rowsImputed += mat.rows
+    }
+    return resMat
+}
+
+public func stack(_ mats: [matrix], axis: Int = 0) -> matrix {
+    if axis == 0 {
+        return vstack(mats)
+    } else {
+        return hstack(mats)
+    }
+}
+
 public func hstack(_ vecs: [vector]) -> matrix {
     return stack(vecs, axis: 1)
 }

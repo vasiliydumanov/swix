@@ -329,12 +329,12 @@ class swixTests {
         
         let x3 = array(1, 5, 3, 1, 0, -10) * pi
         write_binary(x3, filename:"/tmp/x3.npy")
-        let y3:vector = read_binary("/tmp/x3.npy")
+        let y3:vector = try! read_binary("/tmp/x3.npy")
         assert(y3 ~== x3)
         
         let x4 = arange(9).reshape((3,3))
         write_binary(x4, filename:"/tmp/x4.npy")
-        let y4:matrix = read_binary("/tmp/x4.npy")
+        let y4:matrix = try! read_binary("/tmp/x4.npy")
         assert(y4 ~== x4)
     }
     func twoDTests(){
