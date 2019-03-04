@@ -14,9 +14,9 @@ public func write_binary(_ x:vector, filename:String){
     let data = Data(bytes: x.grid, count:N*MemoryLayout<Double>.size)
     try? data.write(to: URL(fileURLWithPath: filename), options: [])
 }
-public func read_binary(_ filename:String) -> vector{
-    let read = try? Data(contentsOf: URL(fileURLWithPath: filename))
-    let l:Int! = read?.count
+public func read_binary(_ filename:String) throws -> vector{
+    let read = try Data(contentsOf: URL(fileURLWithPath: filename))
+    let l:Int! = read.count
     let sD:Int = MemoryLayout<Double>.size
     let count = (l.double / sD.double)
     
@@ -30,8 +30,8 @@ public func write_binary(_ x:matrix, filename:String){
     let y = concat(array(x.shape.0.double, x.shape.1.double), y: x.flat)
     write_binary(y, filename:filename)
 }
-public func read_binary(_ filename:String)->matrix{
-    var a:vector = read_binary(filename)
+public func read_binary(_ filename:String) throws -> matrix{
+    var a:vector = try read_binary(filename)
     let (w, h) = (a[0], a[1])
     return reshape(a[2..<a.n], shape: (w.int,h.int))
 }
