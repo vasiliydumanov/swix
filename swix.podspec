@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "12.1"
   s.source       = { :git => "https://github.com/vasiliydumanov/swix.git", :tag => "#{s.version}" }
   s.source_files  = "swix-ios/swix/*", "swix-ios/swix/**/*.{h,m,mm,swift}"
-  spec.ios.vendored_frameworks = "swix-ios/swix/objc/opencv2.framework"
+  s.ios.vendored_frameworks = "swix-ios/swix/objc/opencv2.framework"
   s.swift_version = "4.2"
 
 end
