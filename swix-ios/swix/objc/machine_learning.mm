@@ -13,7 +13,7 @@
 
 #import <Foundation/Foundation.h>
 #import "OpenCV.h"
-#import "swix-Bridging-Header.h"
+//#import "swix-Bridging-Header.h"
 
 using namespace cv;
 
