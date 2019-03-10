@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E74A9D62235351F00ED0A49 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D216541B629E8E00489EB9 /* opencv2.framework */; };
 		3E7DA4CB223515A100AF01CF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D216541B629E8E00489EB9 /* opencv2.framework */; };
 		3E9EBB8722280E1C0033495C /* swix_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9EBB8522280E1C0033495C /* swix_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E9EBB8F222816580033495C /* complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88FC41D00BB9C0062B7DC /* complex-math.swift */; };
@@ -32,7 +33,6 @@
 		3E9EBBA6222816670033495C /* ScalarArithmetic-bleed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216571B629E8E00489EB9 /* ScalarArithmetic-bleed.swift */; };
 		3E9EBBA7222816D90033495C /* OpenCV.h in Headers */ = {isa = PBXBuildFile; fileRef = D2D216521B629E8E00489EB9 /* OpenCV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E9EBBAA222817240033495C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9EBBA9222817240033495C /* Accelerate.framework */; };
-		3E9EBBAE222817BA0033495C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D216541B629E8E00489EB9 /* opencv2.framework */; };
 		3E9EBBB122281A210033495C /* operations-and-indexing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9EBBB0222819C60033495C /* operations-and-indexing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E9EBC3D22288D610033495C /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9EBC3C22288D610033495C /* ArrayExtensions.swift */; };
 		3E9EBC3E22288DAB0033495C /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9EBC3C22288D610033495C /* ArrayExtensions.swift */; };
@@ -121,7 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E9EBBAE222817BA0033495C /* opencv2.framework in Frameworks */,
+				3E74A9D62235351F00ED0A49 /* opencv2.framework in Frameworks */,
 				3E9EBBAA222817240033495C /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +142,7 @@
 		3E9EBB8422280E1C0033495C /* swix-ios */ = {
 			isa = PBXGroup;
 			children = (
+				D2D216541B629E8E00489EB9 /* opencv2.framework */,
 				D2D216391B629E8E00489EB9 /* swix */,
 				3E9EBB8522280E1C0033495C /* swix_ios.h */,
 				3E9EBB8622280E1C0033495C /* Info.plist */,
@@ -233,7 +234,6 @@
 				D2D216511B629E8E00489EB9 /* math.m */,
 				D2D216521B629E8E00489EB9 /* OpenCV.h */,
 				D2D216531B629E8E00489EB9 /* opencv.mm */,
-				D2D216541B629E8E00489EB9 /* opencv2.framework */,
 				D2D216551B629E8E00489EB9 /* operations-and-indexing.m */,
 				3E9EBBB0222819C60033495C /* operations-and-indexing.h */,
 			);
@@ -461,6 +461,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/swix-ios/swix/objc",
+					"$(PROJECT_DIR)/swix-ios",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -516,6 +517,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/swix-ios/swix/objc",
+					"$(PROJECT_DIR)/swix-ios",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -625,7 +627,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/swix/swix/**",
-					"$(PROJECT_DIR)/swix-ios/swix/objc",
+					"$(PROJECT_DIR)/swix-ios",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -643,7 +645,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/swix/swix/**",
-					"$(PROJECT_DIR)/swix-ios/swix/objc",
+					"$(PROJECT_DIR)/swix-ios",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
