@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "swix"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "Refactored version of https://github.com/stsievert/swix."
 
   s.description  = <<-DESC
@@ -21,7 +21,8 @@ Pod::Spec.new do |s|
   s.author             = { "Vasiliy Dumanov" => "vasiliy.dumanov@gmail.com" }
   s.platform     = :ios, "12.1"
   s.source       = { :git => "https://github.com/vasiliydumanov/swix.git", :tag => "#{s.version}" }
-  s.source_files  = "swix-ios/swix"
+  s.source_files  = "swix-ios/swix/*", "swix-ios/swix/**/*.{h,m,mm,swift}"
+  spec.ios.vendored_frameworks = "swix-ios/swix/objc/opencv2.framework"
   s.swift_version = "4.2"
 
 end
