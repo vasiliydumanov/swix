@@ -10,4 +10,3 @@ let mats: [matrix] = [
 
 print(hstack(mats))
 print(vstack(mats))
-

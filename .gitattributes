@@ -1,0 +1,2 @@
+swix-ios/opencv2.framework filter=lfs diff=lfs merge=lfs -text
+swix-ios/opencv2.framework/** filter=lfs diff=lfs merge=lfs -text
