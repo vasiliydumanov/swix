@@ -202,7 +202,6 @@
 				D2D2163E1B629E8E00489EB9 /* matrix */,
 				D2D2164E1B629E8E00489EB9 /* objc */,
 				D2D216571B629E8E00489EB9 /* ScalarArithmetic-bleed.swift */,
-				D2D216581B629E8E00489EB9 /* swift-complex */,
 				D2D216591B629E8E00489EB9 /* tests */,
 				3E9EBC3C22288D610033495C /* ArrayExtensions.swift */,
 			);
@@ -244,13 +243,6 @@
 				3E9EBBB0222819C60033495C /* operations-and-indexing.h */,
 			);
 			path = objc;
-			sourceTree = "<group>";
-		};
-		D2D216581B629E8E00489EB9 /* swift-complex */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "swift-complex";
 			sourceTree = "<group>";
 		};
 		D2D216591B629E8E00489EB9 /* tests */ = {
