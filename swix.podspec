@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "swix"
-  s.version      = "1.0.8"
+  s.version      = "1.0.9"
   s.summary      = "Refactored version of https://github.com/stsievert/swix."
 
   s.description  = <<-DESC

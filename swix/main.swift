@@ -10,9 +10,6 @@
 import Foundation
 import Swift
 
-//_ = swixTests(run_io_tests: true)
-//
-//_ = swixSpeedTests()
 
 let mats: [matrix] = [
     matrix([[1.0, 1.0],
