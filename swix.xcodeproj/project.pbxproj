@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E7DA4CB223515A100AF01CF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D216541B629E8E00489EB9 /* opencv2.framework */; };
 		3E9EBB8722280E1C0033495C /* swix_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9EBB8522280E1C0033495C /* swix_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E9EBB8F222816580033495C /* complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88FC41D00BB9C0062B7DC /* complex-math.swift */; };
 		3E9EBB90222816580033495C /* helper-functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88FC51D00BB9C0062B7DC /* helper-functions.swift */; };
@@ -36,7 +37,6 @@
 		3E9EBBB122281A210033495C /* operations-and-indexing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9EBBB0222819C60033495C /* operations-and-indexing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E9EBC3D22288D610033495C /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9EBC3C22288D610033495C /* ArrayExtensions.swift */; };
 		3E9EBC3E22288DAB0033495C /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9EBC3C22288D610033495C /* ArrayExtensions.swift */; };
-		D24D7133199272E600D4B9D8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24D7132199272E600D4B9D8 /* opencv2.framework */; };
 		D2B481B0196F20E400DAEDFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481AF196F20E400DAEDFF /* Foundation.framework */; };
 		D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B481B1196F20EB00DAEDFF /* Accelerate.framework */; };
 		D2D2165C1B629E8E00489EB9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D216381B629E8E00489EB9 /* main.swift */; };
@@ -86,7 +86,6 @@
 		3E9EBBB0222819C60033495C /* operations-and-indexing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "operations-and-indexing.h"; sourceTree = "<group>"; };
 		3E9EBC3C22288D610033495C /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		D24A8551196D7D73009C18AC /* swix-mac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "swix-mac"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D24D7132199272E600D4B9D8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = swix/swix/objc/opencv2.framework; sourceTree = "<group>"; };
 		D2B481AF196F20E400DAEDFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2B481B1196F20EB00DAEDFF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D2D216381B629E8E00489EB9 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -133,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D24D7133199272E600D4B9D8 /* opencv2.framework in Frameworks */,
+				3E7DA4CB223515A100AF01CF /* opencv2.framework in Frameworks */,
 				D2B481B2196F20EB00DAEDFF /* Accelerate.framework in Frameworks */,
 				D2B481B0196F20E400DAEDFF /* Foundation.framework in Frameworks */,
 			);
@@ -145,6 +144,7 @@
 		3E9EBB8422280E1C0033495C /* swix-ios */ = {
 			isa = PBXGroup;
 			children = (
+				D2D216391B629E8E00489EB9 /* swix */,
 				3E9EBB8522280E1C0033495C /* swix_ios.h */,
 				3E9EBB8622280E1C0033495C /* Info.plist */,
 			);
@@ -163,7 +163,6 @@
 		D24A8548196D7D73009C18AC = {
 			isa = PBXGroup;
 			children = (
-				D24D7132199272E600D4B9D8 /* opencv2.framework */,
 				D2B481B1196F20EB00DAEDFF /* Accelerate.framework */,
 				D2B481AF196F20E400DAEDFF /* Foundation.framework */,
 				3E9EBB8422280E1C0033495C /* swix-ios */,
@@ -185,8 +184,8 @@
 		D2D216371B629E8E00489EB9 /* swix */ = {
 			isa = PBXGroup;
 			children = (
+				D2D216561B629E8E00489EB9 /* swix-Bridging-Header.h */,
 				D2D216381B629E8E00489EB9 /* main.swift */,
-				D2D216391B629E8E00489EB9 /* swix */,
 			);
 			path = swix;
 			sourceTree = "<group>";
@@ -239,7 +238,6 @@
 				D2D216531B629E8E00489EB9 /* opencv.mm */,
 				D2D216541B629E8E00489EB9 /* opencv2.framework */,
 				D2D216551B629E8E00489EB9 /* operations-and-indexing.m */,
-				D2D216561B629E8E00489EB9 /* swix-Bridging-Header.h */,
 				3E9EBBB0222819C60033495C /* operations-and-indexing.h */,
 			);
 			path = objc;
@@ -466,7 +464,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/swix/swix/objc",
+					"$(PROJECT_DIR)/swix-ios/swix/objc",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -481,6 +479,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -520,7 +519,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/swix/swix/objc",
+					"$(PROJECT_DIR)/swix-ios/swix/objc",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -533,6 +532,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -627,10 +627,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/swix/swix/**",
+					"$(PROJECT_DIR)/swix-ios/swix/objc",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "swix/swix/objc/swix-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "swix/swix-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -644,10 +645,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/swix/swix/**",
+					"$(PROJECT_DIR)/swix-ios/swix/objc",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "swix/swix/objc/swix-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "swix/swix-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
